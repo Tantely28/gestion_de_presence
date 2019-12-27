@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}Présences{% endblock %}
+
+    {% block style %}
+        <style>
+            body{
+                background-color: #fff;
+            }
+            #example-wrapper .container{
+
+            }
+        </style>
+
+    {% endblock %}
+
+    {% block body %}
+    <img src="/assets/images/absence/nl.jpg" width="100%" height="300" alt="retour">
+
+{#    {% for presence in presence %}#}
+
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                    <tr style="...">
+                        <th style="...">Nom</th>
+                        <th style="...">Prenom</th>
+                        <th style="...">date</th>
+                        <th style="...">Heure</th>
+                        <th style="...">Action</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for presence in presence %}
+                        <tr  style="...">
+                            <td style="....">{{ presence.employee.nom}}</td>
+                            <td style="...">{{ presence.employee.prenom}}</td>
+                            <td style="...">{{ presence.temps | date('d/m/Y') }}</td>
+                            <td style="...">{{ presence.temps | date('H:i')}}</td>
+                            <td style="....">{{ presence.action}}</td>
+                        </tr>
+
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+        {% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Employées{% endblock %}
+
+{% block style %}
+<style>
+    body{
+        background-color: #fff;
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+<img src="/assets/images/employee/nl.jpg" width="100%" height="400" alt="retour">
+<h1 style="text-align: center;
+        font-weight: bold; 
+        padding-top: 30px;
+        padding-bottom: 40px;
+         color:#000029; "><marquee><em>LISTE DES EMPLOYEES NL TECHNOLOGIE</em></marquee></h1>
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div style="padding-bottom:20px;">
+                <a href="{{ path('employee_new') }}"  class="btn btn-primary">Ajouter nouveau employee</a>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr style=" color:#000029; text-align: center; ">
+                        <th style="border: 1px solid #000;">NOM</th>
+                        <th style="border: 1px solid #000;">PRENOM</th>
+                        <th style="border: 1px solid #000;">ADRESSE</th>
+                        <th style="border: 1px solid #000;">CODE Qr</th>
+                        <th style="border: 1px solid #000;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for employee in employees %}
+                    <tr  style=" color:#000; text-align: center;">
+                        <td style="border: 1px solid #000;">{{ employee.nom }}</td>
+                        <td style="border: 1px solid #000;">{{ employee.prenom }}</td>
+                        <td style="border: 1px solid #000;">{{ employee.adresse }}</td>
+                        <td style="border: 1px solid #000;">{{ employee.codeQr }}</td>
+                        <td style="border: 1px solid #000;">
+                            <a href="{{ path('employee_show', {'id': employee.id}) }}" class="btn btn-outline-success" >Voir</a>
+                            <a href="{{ path('employee_edit', {'id': employee.id}) }}" class="btn btn-outline-warning" >Modifier</a>
+
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="9">Il n'y a pas encore d'employee!</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

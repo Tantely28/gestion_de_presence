@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Nouveau Employee{% endblock %}
+
+{% block style %}
+    <style>
+        .fr{
+            width: 100px;
+            background-color: #8fd19e;
+        }
+         body{
+            background: #000;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<img src="/assets/images/employee/new/newnl.jpg" width="100%" height="400" alt="retour">
+
+<h1 style="text-align: center; 
+            font-weight: bold; 
+            padding-top: 30px;
+            padding-bottom: 30px;
+            color: #0378ff;
+            text-shadow: 2px 1px #000;">Ajouter Nouveau employee
+</h1>
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="row">
+                    <div class="col-xs-12 col-md-5 ">
+                         {{ include('employee/_form.html.twig') }} <br>
+                         <a href="{{ path('employee_index') }}" class="btn btn-secondary btn-lg btn-block">Retour</a>
+                    </div> 
+                    <div class="col-md-7" style="text-align: center;padding-top:20px;">
+                        <marquee><img src="/assets/images/employee/new/ajout.png" width="90%" height="700" alt="retour">
+                        </marquee></div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+    
+{% endblock %}

@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Gestion de presence</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/login/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/login/vendor/animate/animate.css">
+<!--===============================================================================================-->  
+    <link rel="stylesheet" type="text/css" href="/assets/login/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/login/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/login/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/assets/login/css/main.css">
+<!--===============================================================================================-->
+</head>
+
+<body>
+    <form method="post" action="{{  path('connexion') }}">
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('/assets/login/images/img-01.jpg');">
+            <div class="wrap-login100 p-t-190 p-b-30">
+                <form class="login100-form validate-form">
+                    <div class="login100-form-avatar">
+                        <img src="/assets/login/images/avatar-01.jpg" alt="AVATAR">
+                    </div>
+
+                    <span class="login100-form-title p-t-20 p-b-45">
+                        NL TECHNOLOGIE
+                    </span>
+
+                    <div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
+                        <input  type="text" name="_username" value="{{ username }}" class="input100" placeholder="Utilisateur">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+                        <input  type="password" name="_password" class="input100" placeholder="Mot de passe">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+
+                    <div class="container-login100-form-btn p-t-10">
+                        <button class="login100-form-btn">
+                            Connexion
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </form>
+    
+    
+
+    
+<!--===============================================================================================-->  
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
+
+
+

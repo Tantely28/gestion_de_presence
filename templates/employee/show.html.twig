@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detail Employee{% endblock %}
+
+{% block style %}
+<style>
+    body{
+        background-color: #fff;
+    }
+    th{
+        color:#000029;
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+<img src="/assets/images/employee/show/shownl.jpg" width="100%" height="500" alt="retour">
+
+<h1 style="text-align: center; 
+            font-weight: bold; 
+            padding-top: 30px;
+            padding-bottom: 40px;
+            color: #27a456;
+            text-shadow: 2px 1px #000;">A Propos de {{ employee.prenom }}
+</h1>
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <table class="table">
+                <tbody>
+                    <tr>
+                        <th style="width: 2%;border: 1px solid #000;">Id:</th>
+                        <td style="border: 1px solid #000;">{{ employee.id }}</td>
+                    </tr>
+                    <tr>
+                        <th style="border: 1px solid #000;">NOM:</th>
+                        <td style="border: 1px solid #000;">{{ employee.nom }}</td>
+                    </tr>
+                    <tr>
+                        <th style="border: 1px solid #000;">PRENOM:</th>
+                        <td style="border: 1px solid #000;">{{ employee.prenom }}</td>
+                    </tr>
+                    <tr>
+                        <th style="border: 1px solid #000;">ADRESSE:</th>
+                        <td style="border: 1px solid #000;">{{ employee.adresse }}</td>
+                    </tr>
+                    <tr>
+                        <th style="border: 1px solid #000;">TELEPHONE:</th>
+                        <td style="border: 1px solid #000;">{{ employee.telephone }}</td>
+                    </tr>
+                    <tr>
+                        <th style="border: 1px solid #000;">EMAIL:</th>
+                        <td style="border: 1px solid #000;">{{ employee.email }}</td>
+                    </tr>
+                    <tr>
+                        <th style="border: 1px solid #000;">DATE DE NAISSANCE:</th>
+                        <td style="border: 1px solid #000;">{{ employee.dateDeNaissance ? employee.dateDeNaissance|date('Y-m-d H:i:s') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th style="border: 1px solid #000;">CODE Qr:</th>
+                        <td  style="border: 1px solid #000;">{{ employee.codeQr }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 50px;">
+            <div class="col-lg-4 col-md-4">
+                <div style="text-align: center;">
+                   <a href="{{ path('employee_edit', {'id': employee.id}) }}" class="btn btn-warning btn-lg btn-block ">Modifier</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div style="text-align: center;">
+                     {{ include('employee/_delete_form.html.twig') }}
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div  style="text-align: center;">
+                     <a href="{{ path('employee_index') }}" class="btn btn-secondary btn-lg btn-block">Retour</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
