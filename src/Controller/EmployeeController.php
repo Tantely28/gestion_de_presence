@@ -62,7 +62,7 @@ class EmployeeController extends AbstractController
     public function show(Employee $employee, PresenceRepository$repository): Response
     {
         $pr=$repository->findPresence($employee);
-        dump($pr[0]->getAction());
+
         return $this->render('employee/show.html.twig', [
             'employee' => $employee,
         ]);

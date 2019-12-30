@@ -15,7 +15,7 @@
 {% endblock %}
 
 {% block body %}
-<img src="/assets/images/employee/show/shownl.jpg" width="100%" height="500" alt="retour">
+<img src="/assets/images/employee/show/shownl.jpg" width="100%" class="img-fluid" alt="retour">
 
 <h1 style="text-align: center; 
             font-weight: bold; 
@@ -57,7 +57,7 @@
                     </tr>
                     <tr>
                         <th style="border: 1px solid #000;">DATE DE NAISSANCE:</th>
-                        <td style="border: 1px solid #000;">{{ employee.dateDeNaissance ? employee.dateDeNaissance|date('Y-m-d H:i:s') : '' }}</td>
+                        <td style="border: 1px solid #000;">{{ employee.dateDeNaissance|date('d-m-Y') }}</td>
                     </tr>
                     <tr>
                         <th style="border: 1px solid #000;">CODE Qr:</th>

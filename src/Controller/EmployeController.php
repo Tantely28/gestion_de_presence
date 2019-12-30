@@ -34,24 +34,13 @@ class EmployeController extends AbstractController
     public function presence(EmployeeRepository $repository, Employee $employee, PresenceRepository $presenceRepository){
 
         $presen=$presenceRepository->findPresence($employee);
-        if($presen[0]->getAction() == "Entre")
+        if($presen = 1)
         {
             $employe=$repository->find($employee->getId());
             $presence=new Presence();
             $presence->setEmployee($employe);
             $presence->setTemps(new \DateTime());
-            $presence->setAction("Sortie");
-            $em=$this->getDoctrine()->getManager();
-            $em->persist($presence);
-            $em->flush();
-            return $this->redirectToRoute('employe');
-        }else{
-
-            $employe=$repository->find($employee->getId());
-            $presence=new Presence();
-            $presence->setEmployee($employe);
-            $presence->setTemps(new \DateTime());
-            $presence->setAction("Entre");
+            $presence->setAction("Présent");
             $em=$this->getDoctrine()->getManager();
             $em->persist($presence);
             $em->flush();

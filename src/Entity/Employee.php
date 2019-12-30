@@ -44,7 +44,7 @@ class Employee
     private $email;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $date_de_naissance;
 
