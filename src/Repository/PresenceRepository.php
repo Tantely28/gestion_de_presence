@@ -31,6 +31,7 @@ class PresenceRepository extends ServiceEntityRepository
     }
 
 
+
     // /**
     //  * @return Presence[] Returns an array of Presence objects
     //  */

@@ -7,6 +7,7 @@ use App\Entity\Presence;
 use App\Repository\EmployeeRepository;
 use App\Repository\PresenceRepository;
 use http\Env\Response;
+use phpDocumentor\Reflection\Types\Nullable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -31,20 +32,36 @@ class EmployeController extends AbstractController
      * @return RedirectResponse
      * @throws \Exception
      */
-    public function presence(EmployeeRepository $repository, Employee $employee, PresenceRepository $presenceRepository){
 
+    public function presence(EmployeeRepository $repository, Employee $employee, PresenceRepository $presenceRepository){
         $presen=$presenceRepository->findPresence($employee);
-        if($presen = 1)
+        $res= $presenceRepository->findAll();
+
+        if($res == null || $presen[0]->getAction() == "Sortie")
         {
             $employe=$repository->find($employee->getId());
             $presence=new Presence();
             $presence->setEmployee($employe);
             $presence->setTemps(new \DateTime());
-            $presence->setAction("Présent");
+            $presence->setAction("Entre");
             $em=$this->getDoctrine()->getManager();
             $em->persist($presence);
             $em->flush();
             return $this->redirectToRoute('employe');
+        }else
+        {
+
+            $employe=$repository->find($employee->getId());
+            $presence=new Presence();
+            $presence->setEmployee($employe);
+            $presence->setTemps(new \DateTime());
+            $presence->setAction("Sortie");
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($presence);
+            $em->flush();
+            return $this->redirectToRoute('employe');
+
+
         }
     }
 }
